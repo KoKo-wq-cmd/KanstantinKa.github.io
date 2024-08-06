@@ -1,0 +1,279 @@
+@import url("'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Mongolian&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
+    
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    background-image: url("Images/backgroundImageMountains.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            height: 100vh;
+            margin: 0;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #d5cd62;
+    border-radius: 10%;
+    box-shadow: 0 0 10px #ebe483;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+.btn:hover {
+    background: #f3e88d;
+    color: #529179;
+    box-shadow: 0 0 20px #f3e88d;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content ul {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.5px; /* Adjust as needed */
+    line-height: 1.6; /* Adjust as needed */
+    font-family: "Roboto Mono", monospace;
+    background-color: rgb(18, 17, 17); /* Ensure good contrast */
+    padding: 5px; /* Optional: Add some padding */
+    border: 5px solid #2a2a2a; /* Add a border to give it a framed look */
+    border-radius: 5px; /* Rounded corners */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for a 3D effect */
+    
+    -webkit-font-smoothing: antialiased; /* Improve text rendering on webkit browsers */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 10% 0;
+}
+.home-content {
+    max-width: 600px;
+}
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 1s;
+}
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation-delay: 3s;
+    animation: slideBottom 1s ease forwards;
+    
+    
+}
+.home-content h3:nth-last-of-type(2) {
+    margin-bottom: 30px;
+}
+.home-content h3 span {
+    color: #f3e88d;
+}
+.home-content p {
+    font-size: 16px;
+    opacity: 0;
+    animation: slideRight 4s ease forwards;
+}
+.home-img img{
+    border-radius: 10%;
+    max-width: 400px;
+    max-height: 450px;
+    margin-right: 5px;
+
+    animation: zoomIn 2s ease forwards;
+    
+
+}
+.logo {
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: default;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+.latin-text {
+    color: aquamarine;
+}
+.navbar a {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop 3s ease forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+.navbar a:hover,
+.navbar a.active {
+    color: rgb(243, 232, 141);
+}
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid rgb(243, 232, 141);
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(243, 232, 141);
+    text-decoration: none;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.social-media a:hover {
+    background: #f3e88d;
+    color: #020202;
+    box-shadow: 0 0 20px #f3e88d;
+    
+}
+
+.sliding-window {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: #f3e88d;
+    transition: bottom 0.5s ease;
+    overflow: hidden;
+    z-index: 1000; /* Ensure it is above other content */
+    opacity: 0.8;
+
+}
+
+
+.sliding-window.show {
+    bottom: 0;
+    /* transform: translateY(0); */
+}
+.typedContainer{
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation-delay: 3s;
+    animation: slideBottom 1s ease forwards;
+}
+.typedContainer span {
+    color: #f3e88d;
+    
+}
+
+
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes slideBottom{
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+
+
+
